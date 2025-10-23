@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/KuntalBose25/Java-Selenium-TestNG-Framework.git'
+                git 'https://github.com/KuntalBose25/simple-java-maven-app.git'
             }
         }
         stage('Build') {
