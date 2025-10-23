@@ -4,14 +4,20 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/KuntalBose25/Java-Selenium-TestNG-Framework.git'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
+                junit 'target/surefire-reports/*.xml'
             }
             post {
                 always {
